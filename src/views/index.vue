@@ -6,7 +6,7 @@
           <div class="float-right">
             <i class="dripicons-wallet report-main-icon bg-icon-purple"></i>
           </div>
-          <span class="badge badge-light text-black">Tổng số mẫu</span>
+          <span class="badge badge-light text-black">Tổng số lần lấy mẫu</span>
           <h3 class="my-3">{{ tab1 }}</h3>
         </div>
         <!--end card-body-->
