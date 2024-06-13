@@ -134,7 +134,7 @@
             label="Lưu lại"
             icon="pi pi-save"
             class="p-button-success p-button-sm mr-2"
-            @click.once="submit()"
+            @click="submit()"
           ></Button>
         </div>
       </div>
@@ -160,10 +160,13 @@ import { useRouter } from "vue-router";
 import StageApi from "../../api/StageApi";
 import { rand } from "../../utilities/rand";
 import UserDepartmentTreeSelect from "../TreeSelect/UserDepartmentTreeSelect.vue";
+import { useAuth } from "../../stores/auth";
 const toast = useToast();
 const router = useRouter();
 const waiting = ref(false);
 const store_Hold = useHold();
+const store_auth = useAuth();
+const { is_admin, is_manager } = storeToRefs(store_auth);
 const { model, datatable, list_add, list_update, list_delete, startEvent } =
   storeToRefs(store_Hold);
 const check_time = store_Hold.check_time;

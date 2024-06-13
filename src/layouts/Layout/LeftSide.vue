@@ -1,25 +1,25 @@
 <template>
   <div class="left-sidenav">
     <ul class="metismenu left-sidenav-menu">
-      <li>
+      <li v-if="is_admin || is_manager">
         <router-link class="nav-link" to="/">
           <i class="fas fa-chart-bar"></i>
           <span>Tổng quan</span>
         </router-link>
       </li>
-      <li>
+      <li v-if="is_admin || is_manager">
         <router-link class="nav-link" to="/hold">
           <i class="fas fa-database"></i>
           <span>Thời gian chờ</span>
         </router-link>
       </li>
-      <li>
+      <li v-if="is_admin || is_manager">
         <router-link class="nav-link" to="/target">
           <i class="fas fa-dot-circle"></i>
           <span>Chỉ tiêu</span>
         </router-link>
       </li>
-      <li>
+      <li v-if="is_admin || is_manager">
         <router-link class="nav-link" to="/stage">
           <i class="fab fa-usps"></i>
           <span>Công đoạn</span>
@@ -62,7 +62,7 @@ import { storeToRefs } from "pinia";
 
 const { initMetisMenu, initActiveMenu } = useLayout();
 const store = useAuth();
-const { is_admin } = storeToRefs(store);
+const { is_admin, is_manager } = storeToRefs(store);
 onMounted(() => {
   initMetisMenu();
   initActiveMenu();

@@ -145,7 +145,7 @@ const login = (e) => {
           }
         }
         // console.log(re);
-        if (re) {
+        if (re || returnUrl.indexOf("/hold/edit/") != -1) {
           location.href = returnUrl;
         } else {
           error.value = "Tài khoản không có quyền truy cập";

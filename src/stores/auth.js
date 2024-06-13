@@ -14,7 +14,7 @@ export const useAuth = defineStore("auth", () => {
   const userdepartments = ref([]);
   const isAuth = computed(() => {
     const Token = getToken();
-    return Token && user.value.id && (is_admin.value || is_manager.value) ? true : false;
+    return Token && user.value.id ? true : false;
   });
   const user = computed(() => {
     const cacheUser = localStorage.getItem("me") || "{}";
