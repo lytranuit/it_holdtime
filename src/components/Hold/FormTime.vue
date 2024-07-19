@@ -108,6 +108,11 @@
             </select>
           </template>
 
+          <template v-else-if="col.data == 'is_remind'">
+            <div class="text-center">
+              <InputSwitch v-model="slotProps.data.is_remind" />
+            </div>
+          </template>
           <template v-else-if="col.data == 'date_theory'">
             <div class="text-center">
               <input
@@ -235,6 +240,7 @@ import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
+import InputSwitch from "primevue/inputswitch";
 import SelectButton from "primevue/selectbutton";
 import { storeToRefs } from "pinia";
 
@@ -287,6 +293,11 @@ const columns = ref([
     className: "text-center",
   },
   {
+    label: "Nhắc nhở",
+    data: "is_remind",
+    className: "text-center",
+  },
+  {
     label: "Ngày lấy mẫu thực tế",
     data: "date_reality",
     className: "text-center",
@@ -313,6 +324,7 @@ const addRow = () => {
     time_type: "h",
     based: "date_start",
     type: 1,
+    is_remind: true,
   });
   check_time();
 };
